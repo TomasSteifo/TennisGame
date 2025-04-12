@@ -1,10 +1,13 @@
-﻿namespace TennisGame
+﻿using System;
+
+namespace TennisGame
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // Call the static method you created in TennisApp
+            TennisInterface.Run();
         }
     }
 }
