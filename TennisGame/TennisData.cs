@@ -12,7 +12,7 @@ namespace TennisGame
             int receiverScore,
             string winner)
         {
-            // Using ADO.NET with parameterized query for security
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();

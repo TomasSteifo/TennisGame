@@ -6,7 +6,6 @@ namespace TennisGame
     {
         static void Main(string[] args)
         {
-            // Call the static method you created in TennisApp
             TennisInterface.Run();
         }
     }
