@@ -18,12 +18,10 @@ namespace TennisGame
             int serverScore = server.GetPlayerScore();
             int receiverScore = receiver.GetPlayerScore();
 
-            // If either player has 4 or more points, check differences
             if (serverScore >= 4 || receiverScore >= 4)
             {
                 int diff = Math.Abs(serverScore - receiverScore);
 
-                // If difference >= 2, we have a winner
                 if (diff >= 2)
                 {
                     return "Score: Game, " + GetLeadPlayer().GetName();
@@ -37,7 +35,7 @@ namespace TennisGame
                     return "Score: Advantage, " + GetLeadPlayer().GetName();
                 }
             }
-            // Otherwise, use the standard 0-3 descriptions
+
             return "Score: " + server.GetScoreDescription() + ", " + receiver.GetScoreDescription();
         }
 

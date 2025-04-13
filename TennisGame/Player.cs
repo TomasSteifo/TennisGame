@@ -33,7 +33,6 @@ namespace TennisGame
         {
             if (score >= pointsDescription.Count)
             {
-                // Return last label if beyond range to avoid out-of-bounds 
                 return pointsDescription[pointsDescription.Count - 1];
             }
             return pointsDescription[score];
