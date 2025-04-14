@@ -14,17 +14,17 @@ namespace TennisGame.Models
             this.name = name;
         }
 
-        public void AddPoint()
+        public void MethodToAddPoint()
         {
             score++;
         }
 
-        public int GetPlayerScore()
+        public int MethodToGetPlayerScore()
         {
             return score;
         }
 
-        public string GetName()
+        public string MehtodToGetPlayerName()
         {
             return name;
         }
