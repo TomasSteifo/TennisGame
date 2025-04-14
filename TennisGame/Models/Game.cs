@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TennisGame
+namespace TennisGame.Models
 {
     public class Game
     {
@@ -41,7 +41,7 @@ namespace TennisGame
 
         public Player ThisMethodChecksWhichPlayerHasTheHighestScore()
         {
-            return (server.GetPlayerScore() > receiver.GetPlayerScore()) ? server : receiver;
+            return server.GetPlayerScore() > receiver.GetPlayerScore() ? server : receiver;
         }
 
         public void Point_To(Player player)

@@ -1,16 +1,18 @@
 ﻿using System;
+using TennisGame.Data;
+using TennisGame.Models;
 
-namespace TennisGame
+namespace TennisGame.Interfaces
 {
     public class TennisInterface
     {
         public static void Run()
         {
             Console.Write("Enter the name of the amazing server: ");
-            string serverName = Console.ReadLine();
+            string serverName = Console.ReadLine()!;
 
             Console.Write("Enter the name of the notorious receiver: ");
-            string receiverName = Console.ReadLine();
+            string receiverName = Console.ReadLine()!;
 
             Player server = new Player(serverName);
             Player receiver = new Player(receiverName);
@@ -44,12 +46,12 @@ namespace TennisGame
                 }
                 else if (keyInfo.Key == ConsoleKey.Escape)
                 {
-                    Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink");
+                    Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink!");
                     break;
                 }
                 else
                 {
-                    continue; 
+                    continue;
                 }
 
                 string currentScore = game.GetMatchScore();
@@ -60,7 +62,7 @@ namespace TennisGame
                     string winnerName = game.ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
                     Console.WriteLine("\nGame is finished! Winner: " + winnerName);
 
-                    string connectionString = "Server=PC\\SQLEXPRESS;Database=TennisScores;Trusted_Connection=True;";
+                    string connectionString = "Server=PC\\SQLEXPRESS;Database=TennisScores;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;";
 
                     TennisData.SaveGameResult(
                         connectionString,
