@@ -24,7 +24,7 @@ namespace TennisGame
 
                 if (diff >= 2)
                 {
-                    return "Score: Game, " + GetLeadPlayer().GetName();
+                    return "Score: Game, " + ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
                 }
                 else if (diff == 0)
                 {
@@ -32,14 +32,14 @@ namespace TennisGame
                 }
                 else
                 {
-                    return "Score: Advantage, " + GetLeadPlayer().GetName();
+                    return "Score: Advantage, " + ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
                 }
             }
 
-            return "Score: " + server.GetScoreDescription() + ", " + receiver.GetScoreDescription();
+            return "Score: " + server.ThisIsAHelperMethodToConvertScoreToTennisTerm() + ", " + receiver.ThisIsAHelperMethodToConvertScoreToTennisTerm();
         }
 
-        public Player GetLeadPlayer()
+        public Player ThisMethodChecksWhichPlayerHasTheHighestScore()
         {
             return (server.GetPlayerScore() > receiver.GetPlayerScore()) ? server : receiver;
         }
