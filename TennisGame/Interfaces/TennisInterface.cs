@@ -10,9 +10,9 @@ namespace TennisGame.Interfaces
         {
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("*******************************************************");
+            Console.WriteLine("******************************************************************************************");
             Console.WriteLine(" Who is going to get awarded an intershio at Bilvision? Tennis EFL Championship Game! ");
-            Console.WriteLine("*******************************************************");
+            Console.WriteLine("******************************************************************************************");
             Console.ResetColor(); 
 
             Console.Write("Enter the name of the ");
@@ -40,7 +40,6 @@ namespace TennisGame.Interfaces
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
-            Console.WriteLine("Are you ready?");
             Console.WriteLine("Are you ready to get an Internship at Bilvision!");
             Console.WriteLine($"The amazing server: {server.MehtodToGetPlayerName()}");
             Console.WriteLine($"The notorious receiver: {receiver.MehtodToGetPlayerName()}");
@@ -60,7 +59,6 @@ namespace TennisGame.Interfaces
                 {
                     game.MethodToSeeWhoGetsAPoint(server);
 
-                    // Color the point announcement in cyan
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("Point given to the amazing " + server.MehtodToGetPlayerName());
                     Console.ResetColor();
@@ -69,7 +67,6 @@ namespace TennisGame.Interfaces
                 {
                     game.MethodToSeeWhoGetsAPoint(receiver);
 
-                    // Color the point announcement in magenta
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("Point given to the notorious " + receiver.MehtodToGetPlayerName());
                     Console.ResetColor();
