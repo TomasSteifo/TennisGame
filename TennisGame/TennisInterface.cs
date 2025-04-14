@@ -6,10 +6,10 @@ namespace TennisGame
     {
         public static void Run()
         {
-            Console.Write("Enter the name of the server: ");
+            Console.Write("Enter the name of the amazing server: ");
             string serverName = Console.ReadLine();
 
-            Console.Write("Enter the name of the receiver: ");
+            Console.Write("Enter the name of the notorious receiver: ");
             string receiverName = Console.ReadLine();
 
             Player server = new Player(serverName);
@@ -18,14 +18,14 @@ namespace TennisGame
             Game game = new Game(server, receiver);
 
             Console.WriteLine();
-            Console.WriteLine("Welcome to our tennis game with arrow-key scoring!");
-            Console.WriteLine($"Server: {server.GetName()}");
-            Console.WriteLine($"Receiver: {receiver.GetName()}");
+            Console.WriteLine("Lets see who the best tennis player is! The winner will be awarded a Internship at Bilvision");
+            Console.WriteLine($"The amazing server: {server.GetName()}");
+            Console.WriteLine($"The notorious receiver: {receiver.GetName()}");
             Console.WriteLine();
-            Console.WriteLine("Use the arrow keys to award points:");
+            Console.WriteLine("Instructions to award points");
             Console.WriteLine("    Up Arrow => Server");
             Console.WriteLine("    Down Arrow => Receiver");
-            Console.WriteLine("Press the Escape (Esc) key anytime to quit.");
+            Console.WriteLine("Escape (Esc) to end the game");
             Console.WriteLine();
 
             while (true)
@@ -35,16 +35,16 @@ namespace TennisGame
                 if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
                     game.Point_To(server);
-                    Console.WriteLine("Point -> " + server.GetName());
+                    Console.WriteLine("Point given to the amazing " + server.GetName());
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
                     game.Point_To(receiver);
-                    Console.WriteLine("Point -> " + receiver.GetName());
+                    Console.WriteLine("Point given to the notorious " + receiver.GetName());
                 }
                 else if (keyInfo.Key == ConsoleKey.Escape)
                 {
-                    Console.WriteLine("\nExiting the game...");
+                    Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink");
                     break;
                 }
                 else
@@ -57,7 +57,7 @@ namespace TennisGame
 
                 if (currentScore.StartsWith("Score: Game"))
                 {
-                    string winnerName = game.GetLeadPlayer().GetName();
+                    string winnerName = game.ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
                     Console.WriteLine("\nGame is finished! Winner: " + winnerName);
 
                     string connectionString = "Server=PC\\SQLEXPRESS;Database=TennisScores;Trusted_Connection=True;";
@@ -75,7 +75,7 @@ namespace TennisGame
                 }
             }
 
-            Console.WriteLine("\nPress any key to exit...");
+            Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink");
             Console.ReadKey();
         }
     }

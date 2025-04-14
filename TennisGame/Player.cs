@@ -5,7 +5,7 @@ namespace TennisGame
     public class Player
     {
         private int score;
-        public List<string> pointsDescription = new List<string> { "Love", "Fifteen", "Thirty", "Forty" };
+        public List<string> thisIsAListOfDiffrentPiontsAwardedInTennis = new List<string> { "Love <3", "Fifteen (15)", "Thirty (30)", "Forty (40)" };
 
         private string name;
 
@@ -29,13 +29,13 @@ namespace TennisGame
             return name;
         }
 
-        public string GetScoreDescription()
+        public string ThisIsAHelperMethodToConvertScoreToTennisTerm()
         {
-            if (score >= pointsDescription.Count)
+            if (score >= thisIsAListOfDiffrentPiontsAwardedInTennis.Count)
             {
-                return pointsDescription[pointsDescription.Count - 1];
+                return thisIsAListOfDiffrentPiontsAwardedInTennis[thisIsAListOfDiffrentPiontsAwardedInTennis.Count - 1];
             }
-            return pointsDescription[score];
+            return thisIsAListOfDiffrentPiontsAwardedInTennis[score];
         }
     }
 }
