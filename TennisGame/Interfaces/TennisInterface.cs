@@ -11,7 +11,7 @@ namespace TennisGame.Interfaces
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("******************************************************************************************");
-            Console.WriteLine(" Who is going to get awarded an intershio at Bilvision? Tennis Championship Game! ");
+            Console.WriteLine(" Who is going to get awarded an intershio at Bilvision? Tennis EFL Championship Game! ");
             Console.WriteLine("******************************************************************************************");
             Console.ResetColor(); 
 
