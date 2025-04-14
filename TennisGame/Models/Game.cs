@@ -13,10 +13,10 @@ namespace TennisGame.Models
             this.receiver = receiver;
         }
 
-        public string GetMatchScore()
+        public string MethodToGetCurrentMatchScore()
         {
-            int serverScore = server.GetPlayerScore();
-            int receiverScore = receiver.GetPlayerScore();
+            int serverScore = server.MethodToGetPlayerScore();
+            int receiverScore = receiver.MethodToGetPlayerScore();
 
             if (serverScore >= 4 || receiverScore >= 4)
             {
@@ -24,7 +24,7 @@ namespace TennisGame.Models
 
                 if (diff >= 2)
                 {
-                    return "Score: Game, " + ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
+                    return "Score: Game, " + ThisMethodChecksWhichPlayerHasTheHighestScore().MehtodToGetPlayerName();
                 }
                 else if (diff == 0)
                 {
@@ -32,7 +32,7 @@ namespace TennisGame.Models
                 }
                 else
                 {
-                    return "Score: Advantage, " + ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
+                    return "Score: Advantage, " + ThisMethodChecksWhichPlayerHasTheHighestScore().MehtodToGetPlayerName();
                 }
             }
 
@@ -41,12 +41,12 @@ namespace TennisGame.Models
 
         public Player ThisMethodChecksWhichPlayerHasTheHighestScore()
         {
-            return server.GetPlayerScore() > receiver.GetPlayerScore() ? server : receiver;
+            return server.MethodToGetPlayerScore() > receiver.MethodToGetPlayerScore() ? server : receiver;
         }
 
-        public void Point_To(Player player)
+        public void MethodToSeeWhoGetsAPoint(Player player)
         {
-            player.AddPoint();
+            player.MethodToAddPoint();
         }
     }
 }

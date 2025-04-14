@@ -8,10 +8,29 @@ namespace TennisGame.Interfaces
     {
         public static void Run()
         {
-            Console.Write("Enter the name of the amazing server: ");
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("*******************************************************");
+            Console.WriteLine(" Who is going to get awarded an intershio at Bilvision? Tennis EFL Championship Game! ");
+            Console.WriteLine("*******************************************************");
+            Console.ResetColor(); 
+
+            Console.Write("Enter the name of the ");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("amazing server");
+            Console.ResetColor();
+            Console.Write(": ");
+
             string serverName = Console.ReadLine()!;
 
-            Console.Write("Enter the name of the notorious receiver: ");
+            Console.Write("Enter the name of the ");
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("notorious receiver");
+            Console.ResetColor();
+            Console.Write(": ");
+
             string receiverName = Console.ReadLine()!;
 
             Player server = new Player(serverName);
@@ -19,16 +38,19 @@ namespace TennisGame.Interfaces
 
             Game game = new Game(server, receiver);
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
-            Console.WriteLine("Lets see who the best tennis player is! The winner will be awarded a Internship at Bilvision");
-            Console.WriteLine($"The amazing server: {server.GetName()}");
-            Console.WriteLine($"The notorious receiver: {receiver.GetName()}");
+            Console.WriteLine("Are you ready?");
+            Console.WriteLine("Are you ready to get an Internship at Bilvision!");
+            Console.WriteLine($"The amazing server: {server.MehtodToGetPlayerName()}");
+            Console.WriteLine($"The notorious receiver: {receiver.MehtodToGetPlayerName()}");
             Console.WriteLine();
-            Console.WriteLine("Instructions to award points");
+            Console.WriteLine("Instructions to award points:");
             Console.WriteLine("    Up Arrow => Server");
             Console.WriteLine("    Down Arrow => Receiver");
-            Console.WriteLine("Escape (Esc) to end the game");
+            Console.WriteLine("    Escape (Esc) => End the game");
             Console.WriteLine();
+            Console.ResetColor();
 
             while (true)
             {
@@ -36,17 +58,28 @@ namespace TennisGame.Interfaces
 
                 if (keyInfo.Key == ConsoleKey.UpArrow)
                 {
-                    game.Point_To(server);
-                    Console.WriteLine("Point given to the amazing " + server.GetName());
+                    game.MethodToSeeWhoGetsAPoint(server);
+
+                    // Color the point announcement in cyan
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Point given to the amazing " + server.MehtodToGetPlayerName());
+                    Console.ResetColor();
                 }
                 else if (keyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    game.Point_To(receiver);
-                    Console.WriteLine("Point given to the notorious " + receiver.GetName());
+                    game.MethodToSeeWhoGetsAPoint(receiver);
+
+                    // Color the point announcement in magenta
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine("Point given to the notorious " + receiver.MehtodToGetPlayerName());
+                    Console.ResetColor();
                 }
                 else if (keyInfo.Key == ConsoleKey.Escape)
                 {
-                    Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink!");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Great Job! Nils and Jesper will award you a Monster Energy drink!");
+                    Console.ResetColor();
                     break;
                 }
                 else
@@ -54,22 +87,27 @@ namespace TennisGame.Interfaces
                     continue;
                 }
 
-                string currentScore = game.GetMatchScore();
+                string currentScore = game.MethodToGetCurrentMatchScore();
+
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(currentScore);
+                Console.ResetColor();
 
                 if (currentScore.StartsWith("Score: Game"))
                 {
-                    string winnerName = game.ThisMethodChecksWhichPlayerHasTheHighestScore().GetName();
-                    Console.WriteLine("\nGame is finished! Winner: " + winnerName);
+                    string winnerName = game.ThisMethodChecksWhichPlayerHasTheHighestScore().MehtodToGetPlayerName();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\nGame is finished! Winner: {winnerName}");
+                    Console.ResetColor();
 
                     string connectionString = "Server=PC\\SQLEXPRESS;Database=TennisScores;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;";
 
-                    TennisData.SaveGameResult(
+                    TennisData.MethodToSaveGameResult(
                         connectionString,
-                        server.GetName(),
-                        receiver.GetName(),
-                        server.GetPlayerScore(),
-                        receiver.GetPlayerScore(),
+                        server.MehtodToGetPlayerName(),
+                        receiver.MehtodToGetPlayerName(),
+                        server.MethodToGetPlayerScore(),
+                        receiver.MethodToGetPlayerScore(),
                         winnerName
                     );
 
@@ -77,7 +115,10 @@ namespace TennisGame.Interfaces
                 }
             }
 
-            Console.WriteLine("\nThank you for playing and now Nils and Jesper will award you a monster energy drink");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Thank you for playing! Nils and Jesper will award you a Monster Energy drink.");
+            Console.ResetColor();
             Console.ReadKey();
         }
     }
